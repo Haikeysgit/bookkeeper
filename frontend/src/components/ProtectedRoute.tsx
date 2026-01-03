@@ -1,3 +1,13 @@
+/**
+ * Protected Route - Authentication Wrapper Component
+ * 
+ * Ensures users are authenticated before viewing protected content.
+ * Handles three states:
+ * 1. Loading - Shows spinner while checking auth status
+ * 2. Not authenticated - Redirects to Auth0 login
+ * 3. Authenticated - Renders the protected children
+ */
+
 import { useAuth0 } from '@auth0/auth0-react';
 import { Center, Spinner, VStack, Text, Box } from '@chakra-ui/react';
 
@@ -8,7 +18,7 @@ interface ProtectedRouteProps {
 export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
 
-    // Still checking authentication status with Auth0
+    // State 1: Still checking authentication status with Auth0
     if (isLoading) {
         return (
             <Center h="100vh" bg="surface.bg">
@@ -23,7 +33,7 @@ export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
         );
     }
 
-    // Not authenticated - redirect to Auth0 login
+    // State 2: Not authenticated - redirect to Auth0 login page
     if (!isAuthenticated) {
         loginWithRedirect();
         return (
@@ -39,7 +49,7 @@ export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
         );
     }
 
-    // Authenticated - show the protected content
+    // State 3: Authenticated - render the protected content
     return <>{children}</>;
 };
 

@@ -1,3 +1,11 @@
+/**
+ * Book Modal Component
+ * 
+ * A reusable modal for creating and editing books.
+ * Handles form validation, submission, and displays success/error feedback.
+ * Works in two modes: Create (new book) and Edit (existing book).
+ */
+
 import React, { useState, useEffect, useRef } from 'react';
 import {
     Modal,
@@ -29,7 +37,7 @@ interface BookModalProps {
     triggerButton?: React.ReactNode;
 }
 
-const CATEGORIES = ['Industrial', 'Municipal', 'Organic', 'E-Waste', 'Hazardous'];
+const CATEGORIES = ['Industrial', 'Municipal', 'Organic'];
 
 const BookModal = ({ refetch, initialBook, triggerButton }: BookModalProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure();

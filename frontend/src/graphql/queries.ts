@@ -1,5 +1,13 @@
+/**
+ * GraphQL Queries and Mutations
+ * 
+ * Defines all GraphQL operations for the Book entity.
+ * These are used by Apollo Client to communicate with the backend API.
+ */
+
 import { gql } from '@apollo/client';
 
+/** Fetch all books from the database */
 export const GET_BOOKS = gql`
   query GetBooks {
     books {
@@ -11,6 +19,7 @@ export const GET_BOOKS = gql`
   }
 `;
 
+/** Fetch a single book by ID */
 export const GET_BOOK = gql`
   query GetBook($id: Int!) {
     book(id: $id) {
@@ -22,6 +31,7 @@ export const GET_BOOK = gql`
   }
 `;
 
+/** Create a new book */
 export const CREATE_BOOK = gql`
   mutation CreateBook($createBookInput: CreateBookInput!) {
     createBook(createBookInput: $createBookInput) {
@@ -33,6 +43,7 @@ export const CREATE_BOOK = gql`
   }
 `;
 
+/** Update an existing book */
 export const UPDATE_BOOK = gql`
   mutation UpdateBook($updateBookInput: UpdateBookInput!) {
     updateBook(updateBookInput: $updateBookInput) {
@@ -44,6 +55,7 @@ export const UPDATE_BOOK = gql`
   }
 `;
 
+/** Delete a book by ID */
 export const DELETE_BOOK = gql`
   mutation RemoveBook($id: Int!) {
     removeBook(id: $id)

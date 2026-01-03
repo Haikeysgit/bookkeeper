@@ -1,3 +1,12 @@
+/**
+ * App Component - Root Application Layout
+ * 
+ * Renders the main application structure:
+ * - Header with user info and navigation
+ * - BookList as the main content area
+ * - Protected by authentication wrapper
+ */
+
 import { Box, Container } from '@chakra-ui/react';
 import Header from './components/Header';
 import BookList from './components/BookList';

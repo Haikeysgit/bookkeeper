@@ -1,3 +1,15 @@
+/**
+ * Book List Component - Main Dashboard View
+ * 
+ * Displays the book library with filtering, sorting, and pagination.
+ * Features:
+ * - Stats dashboard showing total books and categories
+ * - Category filter pills for quick filtering
+ * - Grid and table view toggle
+ * - Book cards with edit and delete actions
+ * - Animated transitions using Framer Motion
+ */
+
 import {
     Box,
     SimpleGrid,

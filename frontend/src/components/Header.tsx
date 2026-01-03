@@ -1,3 +1,13 @@
+/**
+ * Header Component - Application Navigation Bar
+ * 
+ * Renders the sticky header with:
+ * - Logo and branding
+ * - Search bar for library search
+ * - Notification bell with badge
+ * - User profile dropdown with sign out option
+ */
+
 import {
     Flex,
     Heading,

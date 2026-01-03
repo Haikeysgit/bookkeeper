@@ -1,3 +1,13 @@
+/**
+ * Application Theme - Chakra UI Configuration
+ * 
+ * Defines the visual design system for the application including:
+ * - Color palette (brand colors, gradients)
+ * - Component styles (buttons, cards, headings)
+ * - Typography (Inter font family)
+ * - Global styles (background patterns)
+ */
+
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import '@fontsource/inter/400.css';
@@ -10,6 +20,7 @@ const config: ThemeConfig = {
     useSystemColorMode: false,
 };
 
+// Color palette
 const colors = {
     brand: {
         50: '#eff6ff',
@@ -17,7 +28,7 @@ const colors = {
         200: '#bfdbfe',
         300: '#93c5fd',
         400: '#60a5fa',
-        500: '#3b82f6', // blue-500
+        500: '#3b82f6',
         600: '#2563eb',
         700: '#1d4ed8',
         800: '#1e40af',
@@ -25,22 +36,23 @@ const colors = {
     },
     purple: {
         500: '#a855f7',
-        600: '#9333ea', // purple-600
+        600: '#9333ea',
         700: '#7e22ce',
     },
     pink: {
-        500: '#ec4899', // pink-500
+        500: '#ec4899',
     },
     surface: {
         bg: '#F7FAFC',
         card: '#FFFFFF',
     },
     premium: {
-        gradient: 'linear-gradient(to right, #3b82f6, #9333ea, #ec4899)', // Blue -> Purple -> Pink
+        gradient: 'linear-gradient(to right, #3b82f6, #9333ea, #ec4899)',
         gradientHover: 'linear-gradient(to right, #2563eb, #7e22ce, #db2777)',
     },
 };
 
+// Component style overrides
 const components = {
     Button: {
         baseStyle: {
@@ -114,6 +126,7 @@ const components = {
     },
 };
 
+// Global styles
 const styles = {
     global: (props: any) => ({
         body: {
@@ -128,6 +141,15 @@ const styles = {
     }),
 };
 
-const theme = extendTheme({ config, colors, fonts: { heading: "'Inter', sans-serif", body: "'Inter', sans-serif" }, components, styles });
+const theme = extendTheme({
+    config,
+    colors,
+    fonts: {
+        heading: "'Inter', sans-serif",
+        body: "'Inter', sans-serif"
+    },
+    components,
+    styles
+});
 
 export default theme;
