@@ -35,6 +35,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           audience: audience,                     // API identifier for access tokens
           scope: 'openid profile email'          // Request user info
         }}
+        cacheLocation="localstorage"              // Persist tokens across page refreshes
+        useRefreshTokens={true}                   // Use refresh tokens for silent renewal
+        useRefreshTokensFallback={true}           // Fallback to iframe if refresh tokens fail
       >
         {/* Apollo provides GraphQL client with auth tokens attached */}
         <AuthorizedApolloProvider>
