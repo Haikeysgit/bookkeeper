@@ -13,12 +13,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Enable CORS to allow requests from the frontend
+  // FRONTEND_URL env var for production, localhost fallbacks for development
+  const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175'
+  ].filter(Boolean); // Remove undefined values
+
   app.enableCors({
-    origin: [
-      'http://localhost:5173',
-      'http://localhost:5174',
-      'http://localhost:5175'
-    ],
+    origin: allowedOrigins,
     credentials: true,  // Allow cookies and auth headers
   });
 
