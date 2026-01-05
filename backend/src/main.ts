@@ -14,12 +14,12 @@ async function bootstrap() {
 
   // Enable CORS to allow requests from the frontend
   // FRONTEND_URL env var for production, localhost fallbacks for development
-  const allowedOrigins = [
+  const allowedOrigins: string[] = [
     process.env.FRONTEND_URL,
     'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:5175'
-  ].filter(Boolean); // Remove undefined values
+  ].filter((origin): origin is string => Boolean(origin));
 
   app.enableCors({
     origin: allowedOrigins,
