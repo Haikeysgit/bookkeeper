@@ -51,9 +51,14 @@ import { GET_BOOKS, DELETE_BOOK } from '../graphql/queries';
 const MotionBox = motion(Box);
 const MotionCard = motion(Box);
 
+// Interface for typed GraphQL response
+interface GetBooksData {
+    books: Book[];
+}
+
 const BookList = () => {
     // GraphQL Data
-    const { loading, error, data, refetch: refetchBooks } = useQuery(GET_BOOKS);
+    const { loading, error, data, refetch: refetchBooks } = useQuery<GetBooksData>(GET_BOOKS);
     const [deleteBook] = useMutation(DELETE_BOOK);
 
     // Local State
@@ -125,8 +130,6 @@ const BookList = () => {
     };
 
     const handleDeleteClick = (book: Book) => { setBookToDelete(book); setBulkDeleteMode(false); onOpenDeleteDialog(); };
-    // Bulk delete reserved for future feature
-    const _handleBulkDeleteClick = () => { setBulkDeleteMode(true); onOpenDeleteDialog(); };
 
     const handleDeleteConfirm = async () => {
         setIsDeleting(true);
@@ -162,8 +165,6 @@ const BookList = () => {
         setSelectedBookIds(newSelected);
     };
 
-    // Selection clearing reserved for future feature
-    const _handleClearSelection = () => setSelectedBookIds(new Set());
     const handlePageChange = (page: number) => { setCurrentPage(page); setSelectedBookIds(new Set()); };
     const handleItemsPerPageChange = (count: number) => { setItemsPerPage(count); setCurrentPage(1); setSelectedBookIds(new Set()); };
     const handleClearFilters = () => { setSearchQuery(''); setSelectedCategory('all'); setCurrentPage(1); refetchBooks(); };
