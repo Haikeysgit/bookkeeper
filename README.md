@@ -2,53 +2,46 @@
 
 A modern book management application built with React, NestJS, GraphQL, and Auth0 authentication.
 
-## Features
+## 🌐 Live Demo
+
+- **Frontend:** https://bookkeeper-seven.vercel.app
+- **Backend API:** https://bookkeeper-production-4869.up.railway.app/graphql
+
+## ✨ Features
 
 - User authentication with Auth0
 - CRUD operations for books via GraphQL API
 - Category-based filtering
 - Grid and table view modes
-- Premium UI with glassmorphism design
+- Responsive design with premium UI
 - SQLite database with automatic seeding
 
-## Tech Stack
+## 🛠 Tech Stack
 
-**Frontend:**
-- React 18 with TypeScript
-- Vite for build tooling
-- Chakra UI for components
-- Apollo Client for GraphQL
-- Framer Motion for animations
+| Frontend | Backend |
+|----------|---------|
+| React 18 + TypeScript | NestJS + TypeScript |
+| Vite | GraphQL + Apollo Server |
+| Chakra UI | TypeORM + SQLite |
+| Apollo Client | Passport.js + Auth0 JWT |
+| Framer Motion | |
 
-**Backend:**
-- NestJS with TypeScript
-- GraphQL with Apollo Server
-- TypeORM with SQLite
-- Passport.js with Auth0 JWT
+## 🚀 Local Development
 
-## Prerequisites
+### Prerequisites
 
 - Node.js 18+
 - npm or yarn
 - Auth0 account (free tier)
 
-## Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/bookkeeper.git
-cd bookkeeper
-```
-
-### 2. Backend Setup
+### Backend Setup
 
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file in the backend folder:
+Create a `.env` file:
 ```
 AUTH0_DOMAIN=your-auth0-domain.auth0.com
 AUTH0_AUDIENCE=https://your-api-identifier
@@ -59,16 +52,14 @@ Start the backend:
 npm run start:dev
 ```
 
-The GraphQL API will be available at `http://localhost:3000/graphql`
-
-### 3. Frontend Setup
+### Frontend Setup
 
 ```bash
 cd frontend
 npm install
 ```
 
-Create a `.env` file in the frontend folder:
+Create a `.env` file:
 ```
 VITE_AUTH0_DOMAIN=your-auth0-domain.auth0.com
 VITE_AUTH0_CLIENT_ID=your-auth0-client-id
@@ -81,19 +72,7 @@ Start the frontend:
 npm run dev
 ```
 
-The application will be available at `http://localhost:5175`
-
-## Auth0 Configuration
-
-1. Create an Auth0 account at https://auth0.com
-2. Create a new Single Page Application
-3. Create a new API with your chosen identifier
-4. Configure the following URLs in your Auth0 app settings:
-   - Allowed Callback URLs: `http://localhost:5175`
-   - Allowed Logout URLs: `http://localhost:5175`
-   - Allowed Web Origins: `http://localhost:5175`
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 bookkeeper/
@@ -114,9 +93,7 @@ bookkeeper/
     └── index.html
 ```
 
-## API Endpoints
-
-The GraphQL API exposes the following operations:
+## 📡 GraphQL API
 
 **Queries:**
 - `books` - Get all books
@@ -127,6 +104,6 @@ The GraphQL API exposes the following operations:
 - `updateBook(input)` - Update an existing book
 - `removeBook(id)` - Delete a book
 
-## License
+## 📄 License
 
 MIT
