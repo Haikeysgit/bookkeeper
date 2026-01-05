@@ -26,7 +26,6 @@ import {
     InputLeftElement,
     Input,
     Badge,
-    useColorModeValue,
 } from '@chakra-ui/react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Bell, Search, Settings, LogOut, ChevronDown } from 'lucide-react';

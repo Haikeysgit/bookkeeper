@@ -1,4 +1,4 @@
-import React, { Component, type ErrorInfo, type ReactNode } from 'react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { Box, Heading, Text, Button, Code, VStack, Container } from '@chakra-ui/react';
 
 interface Props {

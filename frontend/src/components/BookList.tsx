@@ -125,7 +125,8 @@ const BookList = () => {
     };
 
     const handleDeleteClick = (book: Book) => { setBookToDelete(book); setBulkDeleteMode(false); onOpenDeleteDialog(); };
-    const handleBulkDeleteClick = () => { setBulkDeleteMode(true); onOpenDeleteDialog(); };
+    // Bulk delete reserved for future feature
+    const _handleBulkDeleteClick = () => { setBulkDeleteMode(true); onOpenDeleteDialog(); };
 
     const handleDeleteConfirm = async () => {
         setIsDeleting(true);
@@ -161,7 +162,8 @@ const BookList = () => {
         setSelectedBookIds(newSelected);
     };
 
-    const handleClearSelection = () => setSelectedBookIds(new Set());
+    // Selection clearing reserved for future feature
+    const _handleClearSelection = () => setSelectedBookIds(new Set());
     const handlePageChange = (page: number) => { setCurrentPage(page); setSelectedBookIds(new Set()); };
     const handleItemsPerPageChange = (count: number) => { setItemsPerPage(count); setCurrentPage(1); setSelectedBookIds(new Set()); };
     const handleClearFilters = () => { setSearchQuery(''); setSelectedCategory('all'); setCurrentPage(1); refetchBooks(); };
@@ -379,7 +381,7 @@ const BookList = () => {
                         onSort={handleSort}
                         onSelectAll={handleSelectAll}
                         onSelectOne={handleSelectOne}
-                        onEdit={(book) => { }}
+                        onEdit={(_book) => { }}
                         onDelete={handleDeleteClick}
                     />
                 ) : (
